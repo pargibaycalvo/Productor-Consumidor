@@ -18,7 +18,7 @@ public class Exercicios6 {
     public static void main(String[] args){
 
         Queue ma = new LinkedList<>(); //para listas doblemente enlazadas
-        int maximo = 10;//valor maximo de producion y consumicion
+        int maximo = 1;//valor maximo de producion y consumicion
         
         //llamamos al productor y consumidor y le decimos que sus listas producidas las introduzca en el linkedlist
         //su valor maximo de producion, consumicion y su nombre
