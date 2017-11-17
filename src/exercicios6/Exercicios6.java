@@ -18,12 +18,13 @@ public class Exercicios6 {
     public static void main(String[] args){
 
         Queue ma = new LinkedList<>(); //para listas doblemente enlazadas
-        int maximo = 1;//valor maximo de producion y consumicion
+        int maximo = 10;//valor de producion
+        int max = 5;//valor de consumo
         
         //llamamos al productor y consumidor y le decimos que sus listas producidas las introduzca en el linkedlist
         //su valor maximo de producion, consumicion y su nombre
         Thread productor = new productor(ma, maximo, "productor");
-        Thread consumidor = new consumidor(ma, maximo, "consumidor");
+        Thread consumidor = new consumidor(ma, max, "consumidor");
         
         //inicimaos las clases productor y consumidor
         productor.start();

@@ -10,20 +10,22 @@ import java.util.Queue; //ordena los procesos en los que van a ser ejecutados
 /**
  *
  * @author pargibaycalvo
+ * 
+ * Clase consumidor, consume el valor que produce el productor (así vemos que el programa va a romper al acabar el productor)
  */
 public class consumidor extends Thread{
     private Queue q;
-    private int maximo;
+    private int max;
 
-    public consumidor(Queue p, int maximo, String nombre) {
+    public consumidor(Queue p, int max, String nombre) {
         super(nombre);
         this.q = p;
-        this.maximo = maximo;
+        this.max = max;
     }
     
-    public void run(){
+    public void run(){ 
         while(true){
-            synchronized(q){
+            synchronized(q){ 
                 while(q.isEmpty()){ //cuando q se queda sin carga lanza el mensaje hasta que el productor
                                     //vuelva a cargarla
                     System.out.println("Advertencia: Caja vacía. Esperando a que se llene");
@@ -36,7 +38,9 @@ public class consumidor extends Thread{
             //mensaje de que el consumidor va consumiendo
             System.out.println("Consumiendo... "+q.remove());
             q.notifyAll();
+                
+                }
             }
         }
     }
-}
+
